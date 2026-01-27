@@ -1,0 +1,9 @@
+**
+!.gitignore
+!/.github/**
+!/pycncnettunnel/**
+!/build.sh
+!/LICENSE
+!/pyproject.toml
+!/README.md
+!/setup.py
