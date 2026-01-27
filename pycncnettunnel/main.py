@@ -91,7 +91,7 @@ async def amain(args):
             await asyncio.sleep(args.duration)
         else:
             while True:
-                await asyncio.sleep(1)        
+                await asyncio.sleep(1)
     finally:
         print("Stopping UDP server")
         transport.close()
