@@ -61,7 +61,14 @@ def parse_args():
         default=50000,
         help="Port",
     )
-
+    a.add_argument(
+        "-d",
+        "--duration",
+        type=int,
+        default=3600,
+        help="Duration to run the server in seconds, 1 hour by default. "
+            "Negative value means infinite.",
+    )
     return a.parse_args()
 
 
@@ -76,8 +83,13 @@ async def amain(args):
     )
 
     try:
-        await asyncio.sleep(3600)  # Serve for 1 hour.
+        if args.duration >= 0:
+            await asyncio.sleep(args.duration)
+        else:
+            while True:
+                await asyncio.sleep(1)        
     finally:
+        print("Stopping UDP server")
         transport.close()
 
 
