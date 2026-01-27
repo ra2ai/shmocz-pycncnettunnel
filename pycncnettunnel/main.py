@@ -40,6 +40,10 @@ class TunnelProtocol:
 
         self.transport.sendto(data, self.clients[receiver_id].addr)
 
+    def connection_lost(self, exc):
+        if isinstance(exc, Exception):
+            print(f"Connection lost due to error: {exc}")
+
 
 def parse_args():
     a = argparse.ArgumentParser(
