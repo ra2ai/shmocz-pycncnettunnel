@@ -1,6 +1,7 @@
 **
 !.gitignore
 !/.github/**
+!/Dockerfile
 !/pycncnettunnel/**
 !/build.sh
 !/LICENSE
